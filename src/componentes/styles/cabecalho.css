@@ -1,0 +1,34 @@
+.cabecalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.nome {
+    margin-bottom: 0;
+}
+
+.menu {
+    display: flex;
+    padding: 0;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+.menu li {
+    margin: 0 100px;
+}
+
+.menu li button {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.menu li button:hover {
+    padding: 15px;
+}
