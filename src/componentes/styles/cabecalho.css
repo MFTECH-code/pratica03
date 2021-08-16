@@ -16,10 +16,11 @@
     flex-direction: row;
     justify-content: space-evenly;
     list-style: none;
+    width: 100%;
 }
 
 .menu li {
-    margin: 0 100px;
+    margin: 0 15%;
 }
 
 .menu li button {
