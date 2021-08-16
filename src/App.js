@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import Cabecalho from "./componentes/cabecalho";
+import Sobre from "./componentes/sobre";
+import Projetos from "./componentes/projetos";
+import Redes from "./componentes/redes";
+import Content from "./componentes/content";
 
-function App() {
+export default function App() {
+  const [sobre, setSobre] = useState(false);
+  const [projetos, setProjetos] = useState(false);
+  const [redes, setRedes] = useState(false)
+
+
+  const mostraConteudo = () => {
+    if (sobre) {
+      return(
+        <Sobre/>
+      );
+    } else if (projetos) {
+      return(
+        <Projetos/>
+      );
+    } else if (redes) {
+      return(
+        <Redes/>
+      );
+    } else {
+      return <p>Seja bem vindo!</p>
+    }
+  }
+
+  const changeStateSobre = () => {
+    setSobre(!sobre)
+    setProjetos(false)
+    setRedes(false)
+  }
+
+  const changeStateProjetos = () => {
+    setProjetos(!projetos)
+    setSobre(false)
+    setRedes(false)
+  }
+
+  const changeStateRedes = () => {
+    setRedes(!redes)
+    setSobre(false)
+    setProjetos(false)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Cabecalho 
+        changeStateSobre={changeStateSobre}
+        changeStateProjetos={changeStateProjetos}
+        changeStateRedes={changeStateRedes}/>
+      
+      <Content mostraConteudo={mostraConteudo}/>
+    </>
   );
 }
 
-export default App;
+
